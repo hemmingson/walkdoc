@@ -1,0 +1,11 @@
+{
+  "name": "@hemmingson/walkdoc",
+  "version": "0.1.0",
+  "main": "index.js",
+  "repository": "git@github.com:hemmingson/walkdoc.git",
+  "author": "hemmingson",
+  "license": "MIT",
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}

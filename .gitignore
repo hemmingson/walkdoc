@@ -1,3 +1,5 @@
+*.excalidraw
+
 # Logs
 logs
 *.log

@@ -1,0 +1,556 @@
+html {
+  scroll-behavior: smooth;
+}
+
+::marker {
+  color: rgb(170, 170, 170, 0.5);
+}
+
+:not(h1) > .anchor {
+  position: relative;
+}
+
+h2:hover .anchor::before {
+  content: '\1F517';
+  position: absolute;
+  inset: 0.5rem -1.5rem;
+
+  font-size: 1rem;
+}
+
+hr {
+  border: 2px dashed var(--primary-color);
+  margin: 2em 0 5em 0;
+  position: relative;
+  opacity: 0.1;
+}
+
+p > a {
+  font-family: 'Fire Code', monospace;
+  font-size: 1rem;
+}
+
+p > a:hover {
+  border-bottom: 2px solid var(--primary-color);
+  transition: 0.1s cubic-bezier(1, 0, 0, 1);
+}
+
+p > img {
+  max-height: 100px;
+  max-width: 100%;
+  border-radius: 2px;
+  opacity: 0.6;
+}
+
+p > img:hover {
+  opacity: 1;
+  filter: drop-shadow(0 0.2rem 0.25rem rgba(0, 0, 0, 0.2));
+  transition: all 0.5s ease;
+}
+
+.codespan {
+  font-family: 'Fira Code', monospace;
+  font-size: 0.9rem;
+  background-color: rgba(0, 0, 0, 0.05);
+  padding: 2px 4px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.icon {
+  width: 1.2rem;
+  height: 1.2rem;
+
+  color: var(--font-color);
+}
+
+details {
+  width: 100%;
+  border-radius: 5px;
+  background-color: rgba(0, 0, 0, 0.05);
+  transition: padding-bottom 0.05s cubic-bezier(1, 0, 0, 1);
+}
+
+details[open] {
+  padding-bottom: 10px;
+}
+
+details[open] > summary {
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+summary {
+  margin: 2em 0;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 1em;
+  font-weight: 600;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.1);
+}
+
+body {
+  position: relative;
+  padding: 0 5px;
+
+  font-family: 'Schoolbell', cursive;
+  letter-spacing: 0.05em;
+  color: var(--font-color);
+  background-color: var(--background-color);
+}
+
+h1 {
+  font-family: 'Cabin Sketch', cursive;
+  color: var(--primary-color);
+}
+
+p,
+li {
+  margin: 1.5em 0;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+blockquote {
+  position: relative;
+  color: #aaa;
+}
+
+blockquote::before {
+  content: '👨‍💻';
+  font-size: 1.2rem;
+  position: absolute;
+  left: -1.6em;
+}
+
+.btn-menu {
+  display: none;
+  align-items: center;
+  width: 1.5em;
+  height: 1.5em;
+
+  font-family: 'Fira Code', monospace;
+  font-weight: 700;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  color: var(--font-color);
+  background-color: var(--background-color);
+}
+
+aside {
+  position: fixed;
+  top: 1rem;
+  left: 0;
+  z-index: 1;
+
+  font-family: 'Cabin Sketch', cursive;
+}
+
+aside:hover {
+  cursor: pointer;
+}
+
+aside:hover .btn-menu {
+  justify-content: flex-end;
+  width: 2.5em;
+
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+aside:hover .toc {
+  transform: translateX(0);
+  transition: all 0.5s ease;
+}
+
+[data-selected='1'] {
+  color: var(--primary-color);
+  text-decoration: underline var(--primary-color) 2.5px;
+}
+
+.toc ol {
+  display: flex;
+  flex-direction: column;
+}
+
+.toc li {
+  width: fit-content;
+
+  font-size: 1em;
+}
+
+.toc li:hover {
+  text-decoration: underline var(--primary-color) 2.5px;
+}
+
+.toc {
+  overflow-y: auto;
+  margin-top: 0.5em;
+  max-height: 50vh;
+  padding: 0 0.5em;
+
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  color: var(--font-color);
+  background-color: var(--background-color);
+  transform: translateX(-100%);
+  transition: all 0.5s ease;
+}
+
+.btn-mode {
+  display: grid;
+  place-content: center;
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 3rem;
+  height: 3rem;
+  z-index: 1;
+
+  font-size: 1.5rem;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.05) 0px 6px 24px 0px,
+    rgba(0, 0, 0, 0.08) 0px 0px 0px 1px;
+  background-color: var(--background-color);
+}
+
+.btn-mode:hover {
+  cursor: pointer;
+  transition: all 1s ease;
+}
+
+.btn-mode::selection {
+  background-color: transparent;
+}
+
+code[class*='language-'],
+pre[class*='language-'] {
+  text-align: left;
+  white-space: pre;
+  word-spacing: normal;
+  word-break: normal;
+  word-wrap: normal;
+  color: #90a4ae;
+  background: var(--pre-color);
+  font-family: 'Fira Code', monospace;
+  font-size: 0.8rem;
+  font-weight: 600;
+  line-height: 1.5em;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  -webkit-hyphens: none;
+  -moz-hyphens: none;
+  -ms-hyphens: none;
+  hyphens: none;
+}
+
+code[class*='language-']::-moz-selection,
+pre[class*='language-']::-moz-selection,
+code[class*='language-'] ::-moz-selection,
+pre[class*='language-'] ::-moz-selection {
+  background: #cceae7;
+  color: #263238;
+}
+
+code[class*='language-']::selection,
+pre[class*='language-']::selection,
+code[class*='language-'] ::selection,
+pre[class*='language-'] ::selection {
+  background: #cceae7;
+  color: #263238;
+}
+
+:not(pre) > code[class*='language-'] {
+  white-space: normal;
+  border-radius: 0.2em;
+  padding: 0.1em;
+}
+
+pre[class*='language-'] {
+  overflow: auto;
+  position: relative;
+  padding: 1.25em 1em;
+
+  border-radius: 5px;
+  box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
+}
+
+.language-css > code,
+.language-sass > code,
+.language-scss > code {
+  color: #f76d47;
+}
+
+[class*='language-'] .namespace {
+  opacity: 0.7;
+}
+
+.token.atrule {
+  color: #7c4dff;
+}
+
+.token.attr-name {
+  color: #39adb5;
+}
+
+.token.attr-value {
+  color: #f6a434;
+}
+
+.token.attribute {
+  color: #f6a434;
+}
+
+.token.boolean {
+  color: #7c4dff;
+}
+
+.token.builtin {
+  color: #39adb5;
+}
+
+.token.cdata {
+  color: #39adb5;
+}
+
+.token.char {
+  color: #39adb5;
+}
+
+.token.class {
+  color: #39adb5;
+}
+
+.token.class-name {
+  color: #6182b8;
+}
+
+.token.comment {
+  color: #aabfc9;
+}
+
+.token.constant {
+  color: #7c4dff;
+}
+
+.token.deleted {
+  color: #e53935;
+}
+
+.token.doctype {
+  color: #aabfc9;
+}
+
+.token.entity {
+  color: #e53935;
+}
+
+.token.function {
+  color: #7c4dff;
+}
+
+.token.hexcode {
+  color: #f76d47;
+}
+
+.token.id {
+  color: #7c4dff;
+  font-weight: bold;
+}
+
+.token.important {
+  color: #7c4dff;
+  font-weight: bold;
+}
+
+.token.inserted {
+  color: #39adb5;
+}
+
+.token.keyword {
+  color: #7c4dff;
+}
+
+.token.number {
+  color: #f76d47;
+}
+
+.token.operator {
+  color: #39adb5;
+}
+
+.token.prolog {
+  color: #aabfc9;
+}
+
+.token.property {
+  color: #39adb5;
+}
+
+.token.pseudo-class {
+  color: #f6a434;
+}
+
+.token.pseudo-element {
+  color: #f6a434;
+}
+
+.token.punctuation {
+  color: #39adb5;
+}
+
+.token.regex {
+  color: #6182b8;
+}
+
+.token.selector {
+  color: #e53935;
+}
+
+.token.string {
+  color: #f6a434;
+}
+
+.token.symbol {
+  color: #7c4dff;
+}
+
+.token.tag {
+  color: #e53935;
+}
+
+.token.unit {
+  color: #f76d47;
+}
+
+.token.url {
+  color: #e53935;
+}
+
+.token.variable {
+  color: #e53935;
+}
+
+pre[data-line] {
+  position: relative;
+  padding: 1em 0 1em 1em;
+}
+
+.line-highlight {
+  position: absolute;
+  left: 0;
+  right: 0;
+  padding: inherit 0;
+  margin-top: 1em; /* Same as .prism’s padding-top */
+
+  background: rgba(0, 0, 255, 0.1);
+
+  pointer-events: none;
+
+  line-height: inherit;
+  white-space: pre;
+  border-left: 0.3em solid #c490e4;
+}
+
+@media print {
+  .line-highlight {
+    /*
+		 * This will prevent browsers from replacing the background color with white.
+		 * It's necessary because the element is layered on top of the displayed code.
+		 */
+    -webkit-print-color-adjust: exact;
+    color-adjust: exact;
+  }
+}
+
+.token.punctuation.brace-hover,
+.token.punctuation.brace-selected {
+  background-color: rgba(0, 255, 0, 0.3);
+}
+
+.rainbow-braces .token.punctuation.brace-level-1,
+.rainbow-braces .token.punctuation.brace-level-4,
+.rainbow-braces .token.punctuation.brace-level-5,
+.rainbow-braces .token.punctuation.brace-level-8,
+.rainbow-braces .token.punctuation.brace-level-9,
+.rainbow-braces .token.punctuation.brace-level-12 {
+  color: rgb(255, 215, 0);
+  opacity: 1;
+}
+.rainbow-braces .token.punctuation.brace-level-2,
+.rainbow-braces .token.punctuation.brace-level-6,
+.rainbow-braces .token.punctuation.brace-level-10 {
+  color: rgb(218, 112, 214);
+  opacity: 1;
+}
+
+.rainbow-braces .token.punctuation.brace-level-3,
+.rainbow-braces .token.punctuation.brace-level-7,
+.rainbow-braces .token.punctuation.brace-level-11 {
+  color: rgb(135, 206, 250);
+  opacity: 1;
+}
+
+pre.diff-highlight > code .token.deleted:not(.prefix),
+pre > code.diff-highlight .token.deleted:not(.prefix) {
+  background-color: rgba(218, 54, 51, 0.2);
+  color: inherit;
+  display: block;
+}
+
+pre.diff-highlight > code .token.inserted:not(.prefix),
+pre > code.diff-highlight .token.inserted:not(.prefix) {
+  background-color: rgba(46, 160, 67, 0.2);
+  color: inherit;
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+  body {
+    display: flex;
+    justify-content: center;
+  }
+
+  #root {
+    width: 40vw;
+  }
+
+  p,
+  li {
+    max-width: 40vw;
+
+    font-size: 1.2rem;
+  }
+
+  code[class*='language-'],
+  pre[class*='language-'] {
+    max-width: 40vw;
+
+    font-size: 1rem;
+  }
+
+  .btn-menu {
+    display: flex;
+  }
+
+  .toc {
+    max-width: 25vw;
+
+    transform: translateX(-30vw);
+  }
+
+  .btn-mode:hover {
+    box-shadow: var(--font-color) 0px 10px;
+  }
+}

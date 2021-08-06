@@ -1,0 +1,15 @@
+{
+  "dark": {
+    "background": "#30475e",
+    "font": "#ececec",
+    "pre": "#00203f",
+    "primary": "#f2a365" 
+  },
+
+  "light": {
+    "background": "#f9fcfb",
+    "font": "#333333",
+    "pre": "#f3f9fb",
+    "primary": "#2978b5" 
+  }
+}
